@@ -25,10 +25,14 @@ export class ViewComponent implements OnInit {
         this.router.navigate(["/search"]);
       }
     });
-    this.result = this.result[this.regNo];
-    this.subjects = Object.keys(this.result);
-    this.marks = Object.values(this.result);
-    this.calculateGPA();
+    try {
+      this.result = this.result[this.regNo];
+      this.subjects = Object.keys(this.result);
+      this.marks = Object.values(this.result);
+      this.calculateGPA();
+    } catch {
+      this.router.navigate(["/search"]);
+    }
   }
 
   calculateGPA() {

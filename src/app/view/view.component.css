@@ -12,4 +12,11 @@ mat-card {
 
 #subject {
   margin-bottom: 0.4rem;
+  width: 100%;
+}
+
+.smallInfo {
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 4px;
 }
