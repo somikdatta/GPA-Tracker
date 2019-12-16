@@ -1,0 +1,10 @@
+#welcome {
+  position: relative;
+  z-index: 1;
+}
+
+mat-card {
+  width: 20rem;
+  margin: -2rem auto 0 auto;
+  z-index: 2;
+}

@@ -1,1 +1,24 @@
-<p>search works!</p>
+<div class="background" id='welcome'>
+  <br><br><br><br>
+  <p class="bigText center whiteText">Enter your registration number!</p>
+  <br><br>
+</div>
+
+<mat-card>
+
+  <form class="flexColumn">
+    <mat-form-field>
+      <mat-label>Select a result</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option value="19">Nov/Dec 2019</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" required placeholder="Registration Number" #reg>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="button" (click)="onSubmit(reg.value)">Submit</button>
+  </form>
+
+</mat-card>
