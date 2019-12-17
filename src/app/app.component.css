@@ -3,3 +3,10 @@
   top: 0;
   z-index: 99;
 }
+
+#footer {
+  position: absolute;
+  bottom: .5rem;
+  width: 100%;
+  text-align: center;
+}
