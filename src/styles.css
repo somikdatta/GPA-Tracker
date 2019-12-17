@@ -85,3 +85,7 @@ body {
 .accentDarkBackground {
   background: #ff4081;
 }
+
+.mediumText {
+  font-size: 1.2rem;
+}

@@ -6,7 +6,7 @@
 
 <mat-card id="container" class="flexColumn">
   <div *ngFor="let mark of marks; let i=index" id="subject">
-    <div class="flex"><span class="bold">{{mark.sub}}</span><span class="bold">{{mark.grade}}</span></div>
+    <div class="flex"><span class="bold">{{mark.sub}}</span><span class="bold mediumText">{{mark.grade}}</span></div>
     <span></span>
     <div>
       <span class="smallText accentDarkBackground lightText smallInfo mildShadow"><span>I:</span> {{mark.int}} </span>
@@ -15,5 +15,5 @@
     </div>
     <hr>
   </div>
-  <div class="bolder center primaryColorText">GPA: {{gpa}}</div>
+  <div class="bolder center primaryColorText mediumText">GPA: {{gpa}}</div>
 </mat-card>
