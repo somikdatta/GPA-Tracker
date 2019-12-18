@@ -41,17 +41,21 @@ export class ViewComponent implements OnInit {
   storeData() {
     try {
       this.http.get(`../../assets/${this.examId}.json`).subscribe(data => {
-        this.result = data[this.regNo];
-        this.subjects = Object.keys(this.result);
-        this.marks = Object.values(this.result);
-        this.calculateGPA();
-        this.http
-          .get("https://gpa.rishavanand.com/results/studentInfo.json")
-          .subscribe(res => {
-            this.name = res[this.regNo].name;
-            console.log(this.name);
-            this.isLoaded = true;
-          });
+        try {
+          this.result = data[this.regNo];
+          this.subjects = Object.keys(this.result);
+          this.marks = Object.values(this.result);
+          this.calculateGPA();
+          this.http
+            .get("https://gpa.rishavanand.com/results/studentInfo.json")
+            .subscribe(res => {
+              this.name = res[this.regNo].name;
+              console.log(this.name);
+              this.isLoaded = true;
+            });
+        } catch {
+          this.router.navigate(["/search"]);
+        }
       });
     } catch (err) {
       this.router.navigate(["/search"]);
