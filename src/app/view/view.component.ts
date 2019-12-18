@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import registrationNos from "../../assets/19.json";
+import { HttpClient } from "@angular/common/http";
+// import "rxjs/add/operator/toPromise";
+// import registrationNos from "../../assets/19.json";
 
 @Component({
   selector: "app-view",
@@ -8,29 +10,45 @@ import registrationNos from "../../assets/19.json";
   styleUrls: ["./view.component.css"]
 })
 export class ViewComponent implements OnInit {
+  examId: string;
   regNo: number;
-  result = registrationNos;
+  result;
   subjects = [];
   marks = [];
   gpa: string;
   numerator: number;
   denominator: number;
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       try {
         this.regNo = params["reg"];
+        this.examId = params["examId"];
+        this.storeData();
       } catch {
+        console.log("init exit");
         this.router.navigate(["/search"]);
       }
     });
+  }
+
+  storeData() {
     try {
-      this.result = this.result[this.regNo];
-      this.subjects = Object.keys(this.result);
-      this.marks = Object.values(this.result);
-      this.calculateGPA();
-    } catch {
+      this.http
+        .get(`http://localhost:4200/assets/${this.examId}.json`)
+        .subscribe(data => {
+          this.result = data;
+          this.result = this.result[this.regNo];
+          this.subjects = Object.keys(this.result);
+          this.marks = Object.values(this.result);
+          this.calculateGPA();
+        });
+    } catch (err) {
       this.router.navigate(["/search"]);
     }
   }

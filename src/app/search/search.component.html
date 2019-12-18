@@ -6,7 +6,7 @@
 
 <mat-card>
 
-  <form class="flexColumn">
+  <form class="flexColumn" (ngSubmit)="onSubmit(reg.value)">
     <mat-form-field>
       <mat-label>Select a result</mat-label>
       <mat-select [(value)]="selected">
@@ -18,7 +18,7 @@
       <input matInput type="number" required placeholder="Registration Number" #reg>
     </mat-form-field>
 
-    <button mat-raised-button color="accent" type="submit" (click)="onSubmit(reg.value)">Submit</button>
+    <button mat-raised-button color="accent" type="submit">Submit</button>
   </form>
 
 </mat-card>

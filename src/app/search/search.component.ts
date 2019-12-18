@@ -17,6 +17,6 @@ export class SearchComponent implements OnInit {
     if (isNull(reg) || reg < 1) {
       alert("Please enter your registration number");
     }
-    this.router.navigate([`/search/${reg}`]);
+    this.router.navigate([`/search/${this.selected}/${reg}`]);
   }
 }

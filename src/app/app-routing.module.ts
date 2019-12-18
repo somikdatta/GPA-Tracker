@@ -6,7 +6,7 @@ import { ViewComponent } from "./view/view.component";
 const routes: Routes = [
   { path: "", redirectTo: "search", pathMatch: "full" },
   { path: "search", component: SearchComponent },
-  { path: "search/:reg", component: ViewComponent }
+  { path: "search/:examId/:reg", component: ViewComponent }
 ];
 
 @NgModule({
