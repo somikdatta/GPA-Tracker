@@ -4,6 +4,14 @@
   <br><br>
 </div>
 
+<mat-card id="identity" class="primaryColorText bold">
+  <div *ngIf="isLoaded">
+    {{name}} ({{regNo}})
+  </div>
+  <div *ngIf="!isLoaded">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+</mat-card>
 <mat-card id="container" class="flexColumn">
   <div *ngIf="isLoaded">
     <div *ngFor="let mark of marks; let i=index" id="subject">

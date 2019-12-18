@@ -19,6 +19,7 @@ export class ViewComponent implements OnInit {
   numerator: number;
   denominator: number;
   isLoaded = false;
+  name: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -32,7 +33,6 @@ export class ViewComponent implements OnInit {
         this.examId = params["examId"];
         this.storeData();
       } catch {
-        console.log("init exit");
         this.router.navigate(["/search"]);
       }
     });
@@ -41,12 +41,17 @@ export class ViewComponent implements OnInit {
   storeData() {
     try {
       this.http.get(`../../assets/${this.examId}.json`).subscribe(data => {
-        this.result = data;
-        this.result = this.result[this.regNo];
+        this.result = data[this.regNo];
         this.subjects = Object.keys(this.result);
         this.marks = Object.values(this.result);
         this.calculateGPA();
-        this.isLoaded = true;
+        this.http
+          .get("https://gpa.rishavanand.com/results/studentInfo.json")
+          .subscribe(res => {
+            this.name = res[this.regNo].name;
+            console.log(this.name);
+            this.isLoaded = true;
+          });
       });
     } catch (err) {
       this.router.navigate(["/search"]);
@@ -54,7 +59,8 @@ export class ViewComponent implements OnInit {
   }
 
   calculateGPA() {
-    (this.numerator = 0), (this.denominator = 0);
+    this.numerator = 0;
+    this.denominator = 0;
     this.marks.forEach(element => {
       this.numerator += this.grade(element.grade) * element.credit;
       this.denominator += element.credit;
