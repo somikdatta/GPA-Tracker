@@ -1,0 +1,57 @@
+mat-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  display: flex !important;
+  justify-content: space-between;
+}
+
+/* #photo {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5rem;
+} */
+
+img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5rem;
+}
+
+#name {
+  font-size: 1.7rem;
+}
+
+.social {
+  font-size: 1.5rem;
+}
+
+#socialContainer {
+  width: 100%;
+}
+
+.flexColumn {
+  justify-content: space-evenly;
+}
+
+a {
+  text-decoration: none;
+}
+
+#linkedin {
+  color: #2867B2;
+}
+
+#github {
+  color: #333;
+}
+
+#facebook {
+  color: #4267B2;
+}
+
+#mail {
+  color: #0489C9;
+}

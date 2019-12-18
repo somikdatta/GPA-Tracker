@@ -16,9 +16,10 @@ import {
 } from "@angular/material";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { DevComponent } from './dev/dev.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, ViewComponent],
+  declarations: [AppComponent, SearchComponent, ViewComponent, DevComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
