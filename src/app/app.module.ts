@@ -12,11 +12,12 @@ import {
   MatButtonModule,
   MatCardModule,
   MatSelectModule,
-  MatInputModule
+  MatInputModule,
+  MatProgressSpinnerModule
 } from "@angular/material";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
-import { DevComponent } from './dev/dev.component';
+import { DevComponent } from "./dev/dev.component";
 
 @NgModule({
   declarations: [AppComponent, SearchComponent, ViewComponent, DevComponent],
@@ -30,7 +31,8 @@ import { DevComponent } from './dev/dev.component';
     MatSelectModule,
     MatInputModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

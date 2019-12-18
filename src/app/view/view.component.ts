@@ -18,6 +18,7 @@ export class ViewComponent implements OnInit {
   gpa: string;
   numerator: number;
   denominator: number;
+  isLoaded = false;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -45,6 +46,7 @@ export class ViewComponent implements OnInit {
         this.subjects = Object.keys(this.result);
         this.marks = Object.values(this.result);
         this.calculateGPA();
+        this.isLoaded = true;
       });
     } catch (err) {
       this.router.navigate(["/search"]);

@@ -5,15 +5,20 @@
 </div>
 
 <mat-card id="container" class="flexColumn">
-  <div *ngFor="let mark of marks; let i=index" id="subject">
-    <div class="flex"><span class="bold">{{mark.sub}}</span><span class="bold mediumText">{{mark.grade}}</span></div>
-    <span></span>
-    <div>
-      <span class="smallText accentDarkBackground lightText smallInfo mildShadow"><span>I:</span> {{mark.int}} </span>
-      <span class="smallText accentDarkBackground lightText smallInfo mildShadow"><span>E:</span> {{mark.ext}} </span>
-      <span class="smallText accentDarkBackground lightText smallInfo mildShadow"><span>T:</span> {{mark.tot}}</span>
+  <div *ngIf="isLoaded">
+    <div *ngFor="let mark of marks; let i=index" id="subject">
+      <div class="flex"><span class="bold">{{mark.sub}}</span><span class="bold mediumText">{{mark.grade}}</span></div>
+      <span></span>
+      <div>
+        <span class="smallText accentDarkBackground lightText smallInfo mildShadow"><span>I:</span> {{mark.int}} </span>
+        <span class="smallText accentDarkBackground lightText smallInfo mildShadow"><span>E:</span> {{mark.ext}} </span>
+        <span class="smallText accentDarkBackground lightText smallInfo mildShadow"><span>T:</span> {{mark.tot}}</span>
+      </div>
+      <hr>
     </div>
-    <hr>
+    <div class="bolder center primaryColorText mediumText">GPA: {{gpa}}</div>
   </div>
-  <div class="bolder center primaryColorText mediumText">GPA: {{gpa}}</div>
+  <div *ngIf="!isLoaded">
+    <mat-spinner [diameter]="50"></mat-spinner>
+  </div>
 </mat-card>
