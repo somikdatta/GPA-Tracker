@@ -39,15 +39,13 @@ export class ViewComponent implements OnInit {
 
   storeData() {
     try {
-      this.http
-        .get(`http://localhost:4200/assets/${this.examId}.json`)
-        .subscribe(data => {
-          this.result = data;
-          this.result = this.result[this.regNo];
-          this.subjects = Object.keys(this.result);
-          this.marks = Object.values(this.result);
-          this.calculateGPA();
-        });
+      this.http.get(`../../assets/${this.examId}.json`).subscribe(data => {
+        this.result = data;
+        this.result = this.result[this.regNo];
+        this.subjects = Object.keys(this.result);
+        this.marks = Object.values(this.result);
+        this.calculateGPA();
+      });
     } catch (err) {
       this.router.navigate(["/search"]);
     }
