@@ -1,6 +1,10 @@
 <mat-toolbar color='primary' class="raiseShadow flex" id='nav'>
   <a [routerLink]="['/search']" mat-flat-button color="primary">GPA Calculator</a>
-  <a [routerLink]="['/dev']" mat-flat-button color='primary'>Say Hi!</a>
+  <div>
+    <a href="https://www.github.com/somikdatta/gpa-tracker" mat-flat-button color='primary' target="_blank">Source <i
+        class="far fa-eye"></i></a>
+    <a [routerLink]="['/dev']" mat-flat-button color='primary'>Say Hi <i class="far fa-hand-peace"></i></a>
+  </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
 <div id="footer">Made with <span>❤️</span> by Somik Datta</div>
