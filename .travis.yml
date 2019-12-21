@@ -8,8 +8,8 @@ before_script:
   - npm install -g @angular/cli
 script:
   - npm install
-  - npm run build --prod
+  - ng build --prod
 deploy:
   provider: firebase
   token:
-    secure: $FIREBASE_TOKEN
+    secure: "1//0gDgNDmkDhmiSCgYIARAAGBASNwF-L9IrJeOSx46Z4gw1AXXBjltqVHgS5tsiBTL9zm_xBiMDrVMO6PGaL__5jwz0GqhNQBxd0_Y"
