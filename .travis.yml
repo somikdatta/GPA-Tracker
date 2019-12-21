@@ -10,6 +10,7 @@ script:
   - npm install
   - ng build --prod
 deploy:
+  skip_cleanup: true
   provider: firebase
   token:
-    secure: "1//0gDgNDmkDhmiSCgYIARAAGBASNwF-L9IrJeOSx46Z4gw1AXXBjltqVHgS5tsiBTL9zm_xBiMDrVMO6PGaL__5jwz0GqhNQBxd0_Y"
+    secure: $FIREBASE_TOKEN
