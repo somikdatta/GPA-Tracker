@@ -10,28 +10,42 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./view.component.css"]
 })
 export class ViewComponent implements OnInit {
-  examId: string;
+  examName = {
+    19: "Nov/Dec 2019",
+    17: "May/June 2019",
+    15: "Nov/Dec 2018",
+    13: "May/June 2018",
+    11: "Nov/Dec 2017",
+  }
+  examId: number;
   regNo: number;
   result;
   subjects = [];
   marks = [];
+  cgpamarks = [];
   gpa: string;
-  numerator: number;
-  denominator: number;
+  cgpa: string;
+  gpanumerator: number;
+  gpadenominator: number;
+  cgpanumerator: number;
+  cgpadenominator: number;
   isLoaded = false;
-  name: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       try {
         this.regNo = params["reg"];
         this.examId = params["examId"];
+        if (this.examId % 2 != 1) {
+          this.router.navigate(["/search"]);
+        }
         this.storeData();
+        this.calculateCGPA();
       } catch {
         this.router.navigate(["/search"]);
       }
@@ -46,13 +60,6 @@ export class ViewComponent implements OnInit {
           this.subjects = Object.keys(this.result);
           this.marks = Object.values(this.result);
           this.calculateGPA();
-          this.http
-            .get("https://gpa.rishavanand.com/results/studentInfo.json")
-            .subscribe(res => {
-              this.name = res[this.regNo].name;
-              console.log(this.name);
-              this.isLoaded = true;
-            });
         } catch {
           this.router.navigate(["/search"]);
         }
@@ -62,14 +69,31 @@ export class ViewComponent implements OnInit {
     }
   }
 
+  calculateCGPA() {
+    let res = [];
+    this.cgpanumerator = 0;
+    this.cgpadenominator = 0;
+    for (let i = 11; i <= this.examId; i += 2) {
+      this.http.get(`../../assets/${i}.json`).subscribe(data => {
+        res = Object.values(data[this.regNo]);
+        res.forEach(element => {
+          this.cgpanumerator += this.grade(element.grade) * element.credit;
+          this.cgpadenominator += element.credit;
+          this.cgpa = (this.cgpanumerator / this.cgpadenominator).toFixed(2);
+        });
+      });
+    }
+  }
+
   calculateGPA() {
-    this.numerator = 0;
-    this.denominator = 0;
+    this.gpanumerator = 0;
+    this.gpadenominator = 0;
     this.marks.forEach(element => {
-      this.numerator += this.grade(element.grade) * element.credit;
-      this.denominator += element.credit;
+      this.gpanumerator += this.grade(element.grade) * element.credit;
+      this.gpadenominator += element.credit;
     });
-    this.gpa = (this.numerator / this.denominator).toFixed(2);
+    this.gpa = (this.gpanumerator / this.gpadenominator).toFixed(2);
+    this.isLoaded = true;
   }
 
   grade(grade: string) {

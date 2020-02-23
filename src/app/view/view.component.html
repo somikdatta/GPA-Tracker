@@ -1,12 +1,12 @@
 <div class="background" id='welcome'>
   <br><br><br><br>
-  <p class="bigText center whiteText" id="greet">Your result this semester</p>
+  <p class="bigText center whiteText" id="greet">Your result for the semester</p>
   <br><br>
 </div>
 
 <mat-card id="identity" class="primaryColorText bold">
   <div *ngIf="isLoaded">
-    {{name}} ({{regNo}})
+    Result of {{regNo}} for {{examName[examId]}}
   </div>
   <div *ngIf="!isLoaded">
     <mat-spinner [diameter]="30"></mat-spinner>
@@ -24,7 +24,10 @@
       </div>
       <hr>
     </div>
-    <div class="bolder center primaryColorText mediumText">GPA: {{gpa}}</div>
+    <div class="flex">
+      <div class="bolder center primaryColorText mediumText">GPA: {{gpa}}</div>
+      <div class="bolder center primaryColorText mediumText">CGPA: {{cgpa}}</div>
+    </div>
   </div>
   <div *ngIf="!isLoaded">
     <mat-spinner [diameter]="50"></mat-spinner>
