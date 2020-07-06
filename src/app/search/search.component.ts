@@ -9,13 +9,18 @@ import { isNull } from "util";
 })
 export class SearchComponent implements OnInit {
   selected = "19";
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSubmit(reg: number) {
     if (isNull(reg) || reg < 1) {
       alert("Please enter your registration number");
+      return
+    }
+    if (reg == 201700291) {
+      alert("We don't serve hoes in this crib.")
+      return
     }
     this.router.navigate([`/search/${this.selected}/${reg}`]);
   }
