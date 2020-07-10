@@ -40,6 +40,10 @@ export class ViewComponent implements OnInit {
     this.route.params.subscribe(params => {
       try {
         this.regNo = params["reg"];
+        if (this.regNo == 201700291) {
+          alert("No.");
+          this.router.navigate(["/search"]);
+        }
         this.examId = params["examId"];
         if (this.examId % 2 != 1) {
           this.router.navigate(["/search"]);
