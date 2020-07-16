@@ -11,6 +11,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ViewComponent implements OnInit {
   examName = {
+    21: "May/June 2020",
     19: "Nov/Dec 2019",
     17: "May/June 2019",
     15: "Nov/Dec 2018",
