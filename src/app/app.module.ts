@@ -37,4 +37,4 @@ import { DevComponent } from "./dev/dev.component";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

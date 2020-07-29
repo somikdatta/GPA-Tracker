@@ -8,3 +8,23 @@ mat-card {
   margin: -2rem auto 0 auto;
   z-index: 2;
 }
+
+.warningWrapper {
+  width: 20rem;
+  margin: 2rem auto 0 auto;
+  border: 1px solid #e6a7a7;
+  border-radius: 4px;
+  padding: 12px;
+  background-color: rgba(230, 167, 167, .1);
+  line-height: 1.5;
+}
+
+.warningHeader {
+  text-transform: uppercase;
+  color: #ad5050;
+  font-weight: bold;
+}
+
+.warningText {
+  margin-top: 6px;
+}

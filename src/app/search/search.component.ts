@@ -18,10 +18,6 @@ export class SearchComponent implements OnInit {
       alert("Please enter your registration number");
       return
     }
-    if (reg == 201700291) {
-      alert("We don't serve hoes in this crib.")
-      return
-    }
     this.router.navigate([`/search/${this.selected}/${reg}`]);
   }
 }
