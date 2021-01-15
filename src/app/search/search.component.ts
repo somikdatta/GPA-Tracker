@@ -8,7 +8,7 @@ import { isNull } from "util";
   styleUrls: ["./search.component.css"]
 })
 export class SearchComponent implements OnInit {
-  selected = "21";
+  selected = "23";
   constructor(private router: Router) { }
 
   ngOnInit() { }
