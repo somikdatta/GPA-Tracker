@@ -47,7 +47,7 @@ export class ViewComponent implements OnInit {
           this.router.navigate(["/search"]);
         }
         this.storeData();
-        this.calculateCGPA();
+        // this.calculateCGPA();
       } catch {
         this.router.navigate(["/search"]);
       }
@@ -71,21 +71,21 @@ export class ViewComponent implements OnInit {
     }
   }
 
-  calculateCGPA() {
-    let res = [];
-    this.cgpanumerator = 0;
-    this.cgpadenominator = 0;
-    for (let i = 11; i <= this.examId; i += 2) {
-      this.http.get(`../../assets/${i}.json`).subscribe(data => {
-        res = Object.values(data[this.regNo]);
-        res.forEach(element => {
-          this.cgpanumerator += this.grade(element.grade) * element.credit;
-          this.cgpadenominator += element.credit;
-          this.cgpa = (this.cgpanumerator / this.cgpadenominator).toFixed(2);
-        });
-      });
-    }
-  }
+  // calculateCGPA() {
+  //   let res = [];
+  //   this.cgpanumerator = 0;
+  //   this.cgpadenominator = 0;
+  //   for (let i = 11; i <= this.examId; i += 2) {
+  //     this.http.get(`../../assets/${i}.json`).subscribe(data => {
+  //       res = Object.values(data[this.regNo]);
+  //       res.forEach(element => {
+  //         this.cgpanumerator += this.grade(element.grade) * element.credit;
+  //         this.cgpadenominator += element.credit;
+  //         this.cgpa = (this.cgpanumerator / this.cgpadenominator).toFixed(2);
+  //       });
+  //     });
+  //   }
+  // }
 
   calculateGPA() {
     this.gpanumerator = 0;
