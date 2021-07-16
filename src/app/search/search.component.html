@@ -1,15 +1,17 @@
-<div class="background" id='welcome'>
-  <br><br><br><br>
-  <p class="bigText center whiteText" id="greet">Enter your registration number!</p>
-  <br><br>
+<div class="background" id="welcome">
+  <br /><br /><br /><br />
+  <p class="bigText center whiteText" id="greet">
+    Enter your registration number!
+  </p>
+  <br /><br />
 </div>
 
 <mat-card>
-
   <form class="flexColumn" (ngSubmit)="onSubmit(reg.value)">
     <mat-form-field>
       <mat-label>Select a result</mat-label>
       <mat-select [(value)]="selected">
+        <mat-option value="26">May/June 2021</mat-option>
         <mat-option value="23">Nov/Dec 2020</mat-option>
         <mat-option value="21">May/June 2020</mat-option>
         <mat-option value="19">Nov/Dec 2019</mat-option>
@@ -21,22 +23,29 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="number" required placeholder="Registration Number" #reg>
+      <input
+        matInput
+        type="number"
+        required
+        placeholder="Registration Number"
+        #reg
+      />
     </mat-form-field>
 
     <button mat-raised-button color="accent" type="submit">Submit</button>
   </form>
-
 </mat-card>
 
 <div class="warningWrapper">
   <div class="warningHeader">statutory warning</div>
   <div class="warningBody">
     <div class="warningText">
-      The developer does not take any responsibility about the accuracy of the GPA/CGPA shown on this website.
+      The developer does not take any responsibility about the accuracy of the
+      GPA/CGPA shown on this website.
     </div>
     <div class="warningText">
-      Please wait for the official release of GPA/CGPA from SMIT for final records.
+      Please wait for the official release of GPA/CGPA from SMIT for final
+      records.
     </div>
   </div>
 </div>

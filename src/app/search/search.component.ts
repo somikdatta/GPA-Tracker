@@ -5,18 +5,18 @@ import { isNull } from "util";
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.css"]
+  styleUrls: ["./search.component.css"],
 })
 export class SearchComponent implements OnInit {
-  selected = "23";
-  constructor(private router: Router) { }
+  selected = "26";
+  constructor(private router: Router) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   onSubmit(reg: number) {
     if (isNull(reg) || reg < 1) {
       alert("Please enter your registration number");
-      return
+      return;
     }
     this.router.navigate([`/search/${this.selected}/${reg}`]);
   }

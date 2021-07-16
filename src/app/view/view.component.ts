@@ -7,10 +7,11 @@ import { HttpClient } from "@angular/common/http";
 @Component({
   selector: "app-view",
   templateUrl: "./view.component.html",
-  styleUrls: ["./view.component.css"]
+  styleUrls: ["./view.component.css"],
 })
 export class ViewComponent implements OnInit {
   examName = {
+    26: "May/June 2021",
     23: "Nov/Dec 2020",
     21: "May/June 2020",
     19: "Nov/Dec 2019",
@@ -18,7 +19,7 @@ export class ViewComponent implements OnInit {
     15: "Nov/Dec 2018",
     13: "May/June 2018",
     11: "Nov/Dec 2017",
-  }
+  };
   examId: number;
   regNo: number;
   result;
@@ -36,16 +37,13 @@ export class ViewComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       try {
         this.regNo = params["reg"];
         this.examId = params["examId"];
-        if (this.examId % 2 != 1) {
-          this.router.navigate(["/search"]);
-        }
         this.storeData();
         // this.calculateCGPA();
       } catch {
@@ -56,7 +54,7 @@ export class ViewComponent implements OnInit {
 
   storeData() {
     try {
-      this.http.get(`../../assets/${this.examId}.json`).subscribe(data => {
+      this.http.get(`../../assets/${this.examId}.json`).subscribe((data) => {
         try {
           this.result = data[this.regNo];
           this.subjects = Object.keys(this.result);
@@ -90,7 +88,7 @@ export class ViewComponent implements OnInit {
   calculateGPA() {
     this.gpanumerator = 0;
     this.gpadenominator = 0;
-    this.marks.forEach(element => {
+    this.marks.forEach((element) => {
       this.gpanumerator += this.grade(element.grade) * element.credit;
       this.gpadenominator += element.credit;
     });
