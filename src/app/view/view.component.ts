@@ -45,6 +45,9 @@ export class ViewComponent implements OnInit {
       try {
         this.regNo = params["reg"];
         this.examId = params["examId"];
+        if (!Object.keys(this.examName).includes(this.examId.toString())) {
+          this.router.navigate(["/search"]);
+        }
         this.storeData();
         // this.calculateCGPA();
       } catch {
