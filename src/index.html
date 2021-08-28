@@ -14,9 +14,6 @@ if (employer) {
 else if (want a website) {
   ping me ! lets discuss how will I help you;
 }
-else if (female && single) {
-  Sorry, I'm committed now :p
-}
 else if (geek) {
   hi, I love to be friends with like minded people.
   Message me, maybe we could help each other.
@@ -25,49 +22,58 @@ else {
   goto: https://www.somikdatta.com
 }
 --->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta name="theme-color" content="#3f51b5" />
+    <meta charset="utf-8" />
+    <title>SMIT GPA Calculator</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="SMIT GPA Calculator" />
+    <meta
+      name="description"
+      content="GPA/CGPA Calculator for Semester Exams for SMIT (Sikkim Manipal Institute of Technology)"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/0cde6331c8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <meta name="theme-color" content="#3f51b5" />
-  <meta charset="utf-8">
-  <title>SMIT GPA Calculator</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="SMIT GPA Calculator">
-  <meta name="description"
-    content="GPA/CGPA Calculator for Semester Exams for SMIT (Sikkim Manipal Institute of Technology)">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/0cde6331c8.js" crossorigin="anonymous"></script>
-</head>
+  <body>
+    <app-root></app-root>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
 
-<body>
-  <app-root></app-root>
-  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyDtY1fkVp66zB4Eh6OFhUIUuD4OWL7JrVk",
-      authDomain: "gpacalc-6d086.firebaseapp.com",
-      databaseURL: "https://gpacalc-6d086.firebaseio.com",
-      projectId: "gpacalc-6d086",
-      storageBucket: "gpacalc-6d086.appspot.com",
-      messagingSenderId: "537977873090",
-      appId: "1:537977873090:web:1aff83eb641c7ce33dd15b",
-      measurementId: "G-EMJFM7BMYX"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  </script>
-</body>
-
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDtY1fkVp66zB4Eh6OFhUIUuD4OWL7JrVk",
+        authDomain: "gpacalc-6d086.firebaseapp.com",
+        databaseURL: "https://gpacalc-6d086.firebaseio.com",
+        projectId: "gpacalc-6d086",
+        storageBucket: "gpacalc-6d086.appspot.com",
+        messagingSenderId: "537977873090",
+        appId: "1:537977873090:web:1aff83eb641c7ce33dd15b",
+        measurementId: "G-EMJFM7BMYX",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+  </body>
 </html>
